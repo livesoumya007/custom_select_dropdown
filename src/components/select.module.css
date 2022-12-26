@@ -1,0 +1,116 @@
+.container {
+    margin: 1em;
+    min-height: 1.5em;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    border: .05em solid #777;
+    border-radius: .25em;
+    position: relative;
+    padding: 0.25em;
+    outline: none;
+}
+
+/* it wont work normally like if you give the border color on focus
+it wont change to work this out we need to give tabindex property in the div */
+.container:focus {
+    border-color: rgb(0, 179, 255);
+}
+
+.value {
+    flex-grow: 1;
+    display: flex;
+    gap: 0.5em;
+    flex-wrap: wrap;
+}
+
+.close {
+    border: none;
+    outline: none;
+    background: none;
+    color: #777;
+    cursor: pointer;
+    font-size: 1.25em;
+    padding: 0;
+}
+
+.close:focus, .close:hover {
+    color: #333;
+}
+.divider {
+    width: 0.05em;
+    background-color: #777;
+    /* height: 100%; */ 
+    /* this height property is not working as we gave min height so we used
+    align-self: stretch */
+    align-self: stretch;
+}
+
+.caret {
+    translate: 0 25%;
+    border: .25em solid transparent;
+    border-top-color: #777;
+}
+
+.options {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: none;
+    max-height: 10em;
+    overflow: auto;
+    border: .05em solid #777;
+    border-radius: .25em;
+    width: 100%;
+    position: absolute;
+    top: calc(100% + 0.25em);
+    margin-left: -0.3em;
+}
+
+.options.show {
+    display: block;
+}
+
+.option{
+    padding: 0.25em 0.5em;
+    cursor: pointer;   
+}
+
+.option.selected {
+    background-color: hsl(200, 100%, 50%);
+    font-weight: bold;
+    color: aliceblue;
+}
+.option.highlighted {
+    background-color: hsl(200, 100%, 70%);
+    color: white;
+}
+
+
+.optionBadge{
+    background: none;
+    align-items: center;
+    border-radius: 0.25em;
+    border: .05em solid #777;
+    cursor: pointer;
+    outline: none;
+    padding: 0.15em 0.25em;
+}
+
+.optionBadge:hover,
+.optionBadge:focus {
+  background-color: hsl(0, 100%, 90%);
+  border-color: hsl(0, 100%, 50%);
+}
+
+.optionBadge:hover > .removeBtn,
+.optionBadge:focus > .removeBtn{
+  color: hsl(0, 100%, 50%);
+}
+
+
+.optionBadge > .removeBtn {
+  padding: 0.21em;  
+  font-size: 1.25em;
+  color: #777;
+}
